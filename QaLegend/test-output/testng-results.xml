@@ -2,12 +2,12 @@
 <testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-09T09:20:00 AEST" name="Suite" finished-at="2025-07-09T09:20:12 AEST" duration-ms="12265">
+  <suite started-at="2025-07-11T11:31:14 AEST" name="Suite" finished-at="2025-07-11T11:31:27 AEST" duration-ms="12829">
     <groups>
     </groups>
-    <test started-at="2025-07-09T09:20:00 AEST" name="Test" finished-at="2025-07-09T09:20:12 AEST" duration-ms="12265">
-      <class name="TestScripts.QaLegendProductItemsTest">
-        <test-method is-config="true" signature="initialisation(java.lang.String)[pri:0, instance:TestScripts.QaLegendProductItemsTest@273444fe]" started-at="2025-07-09T09:20:00 AEST" name="initialisation" finished-at="2025-07-09T09:20:03 AEST" duration-ms="3855" status="PASS">
+    <test started-at="2025-07-11T11:31:14 AEST" name="Test" finished-at="2025-07-11T11:31:27 AEST" duration-ms="12829">
+      <class name="TestScripts.QaLegendProductInvoiceTest">
+        <test-method is-config="true" signature="initialisation(java.lang.String)[pri:0, instance:TestScripts.QaLegendProductInvoiceTest@273444fe]" started-at="2025-07-11T11:31:14 AEST" name="initialisation" finished-at="2025-07-11T11:31:19 AEST" duration-ms="4108" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,22 +18,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialisation -->
-        <test-method signature="deleteAnItem()[pri:0, instance:TestScripts.QaLegendProductItemsTest@273444fe]" started-at="2025-07-09T09:20:03 AEST" name="deleteAnItem" finished-at="2025-07-09T09:20:12 AEST" duration-ms="8371" status="PASS">
+        <test-method signature="addItemToNewInvoice()[pri:0, instance:TestScripts.QaLegendProductInvoiceTest@273444fe]" started-at="2025-07-11T11:31:19 AEST" name="addItemToNewInvoice" finished-at="2025-07-11T11:31:27 AEST" duration-ms="8684" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteAnItem -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:TestScripts.QaLegendProductItemsTest@273444fe]" started-at="2025-07-09T09:20:12 AEST" name="afterMethod" finished-at="2025-07-09T09:20:12 AEST" duration-ms="2" status="PASS">
+        </test-method> <!-- addItemToNewInvoice -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:TestScripts.QaLegendProductInvoiceTest@273444fe]" started-at="2025-07-11T11:31:27 AEST" name="afterMethod" finished-at="2025-07-11T11:31:27 AEST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=deleteAnItem status=SUCCESS method=QaLegendProductItemsTest.deleteAnItem()[pri:0, instance:TestScripts.QaLegendProductItemsTest@273444fe] output={null}]]]>
+                <![CDATA[[TestResult name=addItemToNewInvoice status=SUCCESS method=QaLegendProductInvoiceTest.addItemToNewInvoice()[pri:0, instance:TestScripts.QaLegendProductInvoiceTest@273444fe] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- TestScripts.QaLegendProductItemsTest -->
+      </class> <!-- TestScripts.QaLegendProductInvoiceTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

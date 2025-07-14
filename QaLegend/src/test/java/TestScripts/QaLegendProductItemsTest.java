@@ -1,12 +1,8 @@
 package TestScripts;
 
 import org.testng.annotations.Test;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 
-import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import AutomationCore.BaseClass;
@@ -22,18 +18,14 @@ public class QaLegendProductItemsTest extends BaseClass {
 	public void addAnItem() {  
 		
 		SoftAssert softAssert = new SoftAssert();
-		
 		loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
 		dashboard.clickOnItemsButton();
 		String title = prop.getProperty("title") + FakerUtility.getRandomNumber();
 		String description = prop.getProperty("description") + FakerUtility.getRandomNumber();
-		CharSequence rate = prop.getProperty("rate");
+		String rate = prop.getProperty("rate");
 		itemsPage.createNewItem(title, description, rate);
 		itemsPage.searchItemCreated(title);
-		System.out.println(title);
-		System.out.println(itemsPage.getTitleCellValue());
-		
-		softAssert.assertEquals(title, itemsPage.getTitleCellValue());
+		softAssert.assertEquals(itemsPage.getTitleCellValue(),title);
 		softAssert.assertAll();	
 		
 	}
@@ -42,7 +34,6 @@ public class QaLegendProductItemsTest extends BaseClass {
 public void deleteAnItem() throws IOException {  
 		
 		SoftAssert softAssert = new SoftAssert();
-		
 		loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
 		dashboard.clickOnItemsButton();
 		String title = ExcelUtility.readStringData(1, 0, Constant.ITEMDATAEXCELFILEPATH, "ItemDetails") + FakerUtility.getRandomNumber();
@@ -52,8 +43,6 @@ public void deleteAnItem() throws IOException {
 		itemsPage.searchItemCreated(title);
 		itemsPage.clickOnDeleteButton();
 		itemsPage.checkMessageDisplayed();
-		System.out.println(itemsPage.checkMessageDisplayed());
-		
 		softAssert.assertEquals(itemsPage.checkMessageDisplayed(), true);
 		softAssert.assertAll();	
 }

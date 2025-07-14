@@ -1,13 +1,9 @@
+
 package TestScripts;
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import static org.testng.Assert.assertEquals;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import AutomationCore.BaseClass;
@@ -32,27 +28,14 @@ public void addInvoice() {
 }
 
 
-@Test(retryAnalyzer = RetryAnalyzer.class)
-public void addPayment() {
-	
-	loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
-	dashboard.clickOnInvoicesOptionButton();
-	invoicesPage.createPayment(prop.getProperty("payment"));
-	invoicesPage.clickOnSaveButton();
-	
-	//Assert.
-}
-
-
-@Test //(retryAnalyzer = RetryAnalyzer.class)
+@Test (retryAnalyzer = RetryAnalyzer.class)
 public void addItemToNewInvoice() {
 	
 	loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
 	dashboard.clickOnInvoicesOptionButton();
 	invoicesPage.addingItemToAnInvoiceCreated(prop.getProperty("itemnote") + FakerUtility.getRandomNumber());
-	invoicesPage.fillingItemForm("Dotty", "23", "18000");
-	invoicesPage.checkIfItemIsAdded();
-	Assert.assertEquals(invoicesPage.checkIfItemIsAdded(), true);   ///correct ?
+	invoicesPage.fillingItemForm(prop.getProperty("item"),prop.getProperty("quantity"),prop.getProperty("itemrate"));
+	Assert.assertEquals(invoicesPage.checkIfItemIsAdded(), true);   
 }
 
 }

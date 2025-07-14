@@ -159,13 +159,9 @@ public class PageUtilities {
 		element.click();
 		
 		actions.doubleClick(element).build().perform();
-		
-        Thread.sleep(2000);
 
         actions.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).build().perform();
-        
-        Thread.sleep(3000);
-
+     
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         
 
@@ -174,10 +170,6 @@ public class PageUtilities {
 
         // Read from clipboard
         Clipboard clipboard = toolkit.getSystemClipboard(); //toolkit is in Clipboard Class
-        
-        Thread.sleep(2000);
-
-
         String copiedText = (String) clipboard.getData(DataFlavor.stringFlavor);
         System.out.println("Clipboard Data" +copiedText);
         return copiedText;

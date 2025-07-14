@@ -2,6 +2,7 @@ package PageClasses;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,10 +20,10 @@ public class QaLegendClientPage {
 	WebElement companyNameField;
 	@FindBy(id = "address")
 	WebElement addressField;
-	//@FindBy(id = "city")
-	//WebElement cityField;
-	//@FindBy(id = "state")
-	//WebElement stateField;
+	@FindBy(id = "city")
+	WebElement cityFieldTextBox;
+	@FindBy(id = "state")
+	WebElement stateField;
 	@FindBy(id = "phone")
 	WebElement phoneField;
 	@FindBy(xpath = "//button[@class='btn btn-primary']")
@@ -42,8 +43,6 @@ public class QaLegendClientPage {
 	WebElement saveButtonInEditPage;
 	@FindBy(xpath = "//i[@class='fa fa-pencil']//parent::a")
 	WebElement clientEditButton;
-	
-	
 	
 	@FindBy(xpath = "(//tr[@class='odd' or @class='even']//descendant ::a)[1]")
 	WebElement clientNameCell;	//client cell
@@ -65,6 +64,8 @@ public class QaLegendClientPage {
 	@FindBy(xpath = "(//div[@class='select2-container']")
 	WebElement numberOfClientsDisplayed;
 	
+	@FindBy(xpath = "//tr[@class='odd' or @class='even']")
+	List<WebElement>cellRows;
 	
 	@FindBy(xpath = " (//i[@class='fa fa-plus-circle']//parent ::a)[2]") //add contact details
 	WebElement addContactButton;
@@ -93,18 +94,17 @@ public class QaLegendClientPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	/*public String getCityNameValue() throws InterruptedException, UnsupportedFlavorException, IOException {
+	public String getCityNameValue() throws InterruptedException, UnsupportedFlavorException, IOException {
 		
 		return (PageUtilities.getTextUsingClipBoard(driver, getCityName));
 		
-	}*/
+	}
 
-	//to create a new client
+//to create a new client
 	public QaLegendClientPage createClient(String companyName, String address, String phone) {
 		PageUtilities.clickOnAnElement(addClientButton);
 		PageUtilities.enterText(companyNameField, companyName);
 		PageUtilities.enterText(addressField, address);
-		//PageUtilities.enterText(stateField, state);
 		phoneField.sendKeys(phone);
 		saveButton.click();
 		return this;
@@ -126,7 +126,7 @@ public class QaLegendClientPage {
 		return companyCellValue;
 	}
 	
-	//to click edit button
+ //to click edit button
 	public QaLegendClientPage editClientButtonClick() {
 		PageUtilities.clickOnAnElement(editButton);
 		return this;
@@ -152,7 +152,7 @@ public class QaLegendClientPage {
 	}
 
 	
-	//to delete a client
+//to delete a client
 	public QaLegendClientPage clickOnDeleteButton() throws InterruptedException {
 		PageUtilities.clickOnAnElement(deleteButton);
 		WaitUtility.waitForElementToBeClickable(driver, deleteConfirmationButton);
@@ -165,7 +165,7 @@ public class QaLegendClientPage {
 		return (displayMessageCell.getText()); 
 	}
 	
-	//select no of clients to display using dropdown
+//select no of clients to display using dropdown
 	public QaLegendClientPage selectNumOfClientsToDisplay() {
 		
 		PageUtilities.clickOnAnElement(idDropdown);
@@ -179,13 +179,13 @@ public class QaLegendClientPage {
 		return this;
 		
 	}
-	public QaLegendClientPage numberOfClientsDisplayedInFirstPage() {
-		PageUtilities.getTextFromAnElement(numberOfClientsDisplayed);
-		return this;
+	public int numberOfClientsDisplayedInFirstPage() {
+		
+		return cellRows.size();
 		
 	}
 	
-	//add contact details to a client
+//add contact details to a client
 	public void clientContactDeatails(String firstName, String lastName, String email) {
 		PageUtilities.clickOnAnElement(clientNameCell);
 		PageUtilities.clickOnAnElement(addContactButton);
@@ -195,17 +195,14 @@ public class QaLegendClientPage {
 		addContactSaveButton.click();
 			
 	}
-//	public String getContactNameCellValue() {
-//		String contactName = PageUtilities.getTextFromAnElement(contactNameCell);
-//		return contactName;
-//	}
+
 	
 	public boolean contactVerification() {
 		return (PageUtilities.checkIsElementDisplayed(contactNameCell));
 		
 	}
 	
-	//search unlisted client
+//search unlisted client
 	
 	public void enterUnlistedClientNameInSearchbox(String unlistedClientName) {     
 		PageUtilities.clearText(searchBox);

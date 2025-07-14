@@ -30,7 +30,6 @@
 			<class name="TestScripts.QaLegendProductInvoiceTest">
 				<methods>
 <!--					<include name="addInvoice"></include>-->
-					<include name="addPayment"></include>
 					<include name="addItemToNewInvoice"></include>
 				</methods>
 			</class>

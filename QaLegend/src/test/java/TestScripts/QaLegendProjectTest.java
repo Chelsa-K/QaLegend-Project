@@ -2,13 +2,8 @@ package TestScripts;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-
 import java.io.IOException;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import AutomationCore.BaseClass;
@@ -32,9 +27,7 @@ public void addProject() throws IOException {
 		String projDescription= ExcelUtility.readStringData(1, 1, Constant.CLIENTDATAEXCELFILEPATH, "ProjectDetails")+ FakerUtility.getRandomNumber();
 		projectsPage.createProject(title, projDescription);
 		projectsPage.searchProject(title);
-		
-		
-		AssertJUnit.assertEquals(projectsPage.getTitleCellValue(), title);
+		softAssert.assertEquals(projectsPage.getTitleCellValue(), title);
 		softAssert.assertAll(); 
 		
 	}

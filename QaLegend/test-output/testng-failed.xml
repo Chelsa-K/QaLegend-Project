@@ -7,13 +7,13 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="TestScripts.QaLegendProductItemsTest">
+      <class name="TestScripts.QaLegendUserTest">
         <methods>
           <include name="initialisation"/>
           <include name="afterMethod"/>
-          <include name="deleteAnItem"/>
+          <include name="selectClientsToDisplayUsingDropdown"/>
         </methods>
-      </class> <!-- TestScripts.QaLegendProductItemsTest -->
+      </class> <!-- TestScripts.QaLegendUserTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

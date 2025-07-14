@@ -1,22 +1,15 @@
 package TestScripts;
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import AutomationCore.BaseClass;
 import Constants.Constant;
 import Utilities.ExcelUtility;
 import Utilities.FakerUtility;
-import Utilities.WaitUtility;
 
 public class QaLegendUserTest extends BaseClass{
 	
@@ -51,12 +44,7 @@ public class QaLegendUserTest extends BaseClass{
 		clientPage.editCityName(newcityName);
 		clientPage.searchClient(companyName);
 		clientPage.clickOnEditIcon();
-		
 		String cityCellValue=clientPage.getCityCellValue();     
-
-		System.out.println(cityCellValue);
-		System.out.println(newcityName);
-		
 		softAssert.assertEquals(cityCellValue, newcityName); //soft assertion
 		softAssert.assertAll();   
 	}
@@ -74,11 +62,7 @@ public class QaLegendUserTest extends BaseClass{
 		clientPage.createClient(companyName, FakerUtility.getFakerAddress(), ExcelUtility.readIntegerData(3, 1, Constant.CLIENTDATAEXCELFILEPATH, "ClientDetails"));
 		clientPage.searchClient(companyName);
 		clientPage.clickOnDeleteButton();
-		
 		clientPage.searchClient(companyName);
-		clientPage.displayMessageCellValue();
-		System.out.println(clientPage.displayMessageCellValue());
-
 		softAssert.assertEquals(clientPage.displayMessageCellValue(),"No record found.");         
 		softAssert.assertAll();   	
 	}
@@ -86,14 +70,13 @@ public class QaLegendUserTest extends BaseClass{
 	
 	
 	@Test
-	public void selectClientsToDisplayUsingDropdown() { ///---------------FAIL
+	public void selectClientsToDisplayUsingDropdown() {
+		SoftAssert softAssert = new SoftAssert();
 		loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
 		dashboard.clickOnClientOptionButton();
 		clientPage.selectNumOfClientsToDisplay();
-		clientPage.numberOfClientsDisplayedInFirstPage();
-		
-		Assert.assertEquals(clientPage.numberOfClientsDisplayedInFirstPage(), "50");
-		
+		softAssert.assertEquals(clientPage.numberOfClientsDisplayedInFirstPage(), 50);
+		softAssert.assertAll();
 	}
 	
 	@Test
@@ -113,11 +96,9 @@ public class QaLegendUserTest extends BaseClass{
 	public void searchForAnUnlistedClient() {
 		
 		SoftAssert softAssert = new SoftAssert();
- 
 		loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
 		dashboard.clickOnClientOptionButton();
 		clientPage.enterUnlistedClientNameInSearchbox(prop.getProperty("NonExistingClient")+FakerUtility.getRandomNumber());  
-		clientPage.messageDisplayed();
 		softAssert.assertEquals(clientPage.messageDisplayed(), "No record found."); 
 		softAssert.assertAll();   		
 	}

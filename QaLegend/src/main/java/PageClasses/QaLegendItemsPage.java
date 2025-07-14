@@ -37,16 +37,7 @@ public class QaLegendItemsPage {
 	WebElement displayMessageCell;
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 
 	public QaLegendItemsPage(WebDriver driver) {
@@ -54,8 +45,6 @@ public class QaLegendItemsPage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
 	
 	
 	public QaLegendItemsPage createNewItem(String title, String description, CharSequence rate) {

@@ -35,7 +35,7 @@ public class FakerUtility {
 		return address1;
 		
 	}
-			//
+			
 	public static String getFakerCityName() {
 		Faker faker = new Faker();
 		Address address = faker.address();
@@ -71,19 +71,7 @@ public class FakerUtility {
 		return zipCode;
 	}
 	
-	public static String getFakerPhoneNumber() {
-		Faker faker = new Faker();
-		String phoneNumber= faker.phoneNumber().phoneNumber();  //????????????
-		return phoneNumber;
-	}
 
-	
-
-	
-	
-	
-
-	
 	
 		
 }

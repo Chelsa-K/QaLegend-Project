@@ -34,27 +34,7 @@ public class QaLegendInvoicesPage {
 	WebElement newInvoiceTitle;
 	
 	
-	
-	@FindBy(xpath = "(//div[@class='title-button-group']//child::a)[1]")
-	WebElement addPaymentButton;
-	
-	@FindBy(id = "select2-chosen-7")
-	WebElement selectInvoiceDropdownField; ////???????
-	
-	@FindBy(id = "invoice_payment_date")
-	WebElement paymentDateField;
-	@FindBy(id = "//td[@class='today day']")
-	WebElement selectCurrentDay;
-	@FindBy(id = "invoice_payment_amount")
-	WebElement amountField;
-	@FindBy(xpath = "//button[@class='btn btn-primary']")
-	WebElement paymentSaveButton;
-	@FindBy(xpath = "(//span[@class='mt0 label label-success large'])[1]")
-	WebElement paymentStatusField;
-	
-	
-	
-	@FindBy(xpath = "(//a[@class='btn btn-default'])[1]")  // (//i[@class='fa fa-plus-circle']//parent::a)[2]
+	@FindBy(xpath = "(//a[@class='btn btn-default'])[1]")  
 	WebElement addItemButton;
 	@FindBy(id = "select2-chosen-3")
 	WebElement selectItemField;
@@ -75,13 +55,7 @@ public class QaLegendInvoicesPage {
 	
 	
 
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public QaLegendInvoicesPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
@@ -97,13 +71,11 @@ public class QaLegendInvoicesPage {
 	public QaLegendInvoicesPage createInvoice(String note) {
 		addInvoiceButton.click();
 		PageUtilities.clickOnAnElement(dueDateField);
-		//PageUtilities.clickOnAnElement(currentDay);
 		PageUtilities.sendEnterKey(driver);
 		clientDropdown.click();
 		PageUtilities.sendArrowKeyDown(driver);
 		PageUtilities.sendEnterKey(driver);
 		WaitUtility.waitForElementToBeVisible(driver, clientDropdown);
-		//PageUtilities.clickOnAnElement(clickClientToBeSelected);
 		PageUtilities.sendArrowKeyDown(driver);
 		PageUtilities.sendEnterKey(driver);
 		taxField.click();
@@ -112,31 +84,15 @@ public class QaLegendInvoicesPage {
 		PageUtilities.enterText(noteField, note);
 		return this;	
 	}
-	
 	public QaLegendInvoicesPage clickOnInvoiceSaveButton() {
 		PageUtilities.clickOnAnElement(invoiceSaveButton);
 		return this;	
 	}
-	
 	public boolean getInvoiceNumber() {
 		return (newInvoiceTitle.isDisplayed());	
 	}
 	
-	public QaLegendInvoicesPage createPayment(String amount) {
-		PageUtilities.clickOnAnElement(addPaymentButton);
-		selectInvoiceDropdownField.click();
-		PageUtilities.sendArrowKeyDown(driver);
-		PageUtilities.sendEnterKey(driver);
-		PageUtilities.clickOnAnElement(paymentDateField);
-		//selectCurrentDay.click();
-		PageUtilities.sendEnterKey(driver);
-		PageUtilities.enterText(amountField, amount);
-		return this;
-	}
-	public QaLegendInvoicesPage clickOnSaveButton() {
-		PageUtilities.clickOnAnElement(paymentSaveButton);
-		return this;	
-	}
+	
 	
 //TC-to add item to a new invoice created
 	
