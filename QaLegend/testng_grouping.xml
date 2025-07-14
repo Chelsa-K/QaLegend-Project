@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+
+	<listeners>
+		<listener class-name="TestScripts.Listeners">   <!--//class-name, and not just name -->
+
+		</listener>
+	</listeners>
+	<test thread-count="5" name="Test">
+		<parameter name="browser" value="Chrome"></parameter>
+		<groups>
+			<run>
+				<include name="regression"></include>
+			</run>
+		</groups>
+
+		<classes>
+			<class name="TestScripts.QaLegendUserTest">
+
+			</class>
+
+			<class name="TestScripts.QaLegendProjectTest">
+
+			</class>
+
+			<class name="TestScripts.QaLegendProductInvoiceTest">
+
+			</class>
+
+			<class name="TestScripts.QaLegendProductItemsTest">
+
+			</class>
+
+		</classes>
+	</test>
+
+</suite> 
+

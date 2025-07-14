@@ -51,7 +51,7 @@ public class BaseClass {
 		return driver;
 	}
 
-	@BeforeMethod
+	@BeforeMethod(groups = {"smoke", "regression"})
 	@Parameters({ "browser" })
 
 	public void initialisation(String browserName) throws Exception {
@@ -74,7 +74,7 @@ public class BaseClass {
 		driver.manage().window().maximize();
 	}
 
-	@AfterMethod
+	@AfterMethod(groups = {"smoke", "regression"})
 	public void afterMethod(ITestResult itresult) throws IOException { // screenshot
 
 		if (itresult.getStatus() == ITestResult.FAILURE) {

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+
+	<listeners>
+		<listener class-name="TestScripts.Listeners">   <!--//class-name, and not just name -->
+
+		</listener>
+	</listeners>
+	<test thread-count="5" name="Test">
+		<parameter name="browser" value="Chrome"></parameter>
+
+		<classes>
+			<class name="TestScripts.QaLegendUserTest">
+				<methods>
+					<include name="addClient"></include>
+					<include name="editClient"></include>
+					<include name="deleteAClient"></include>
+					<include name="selectClientsToDisplayUsingDropdown"></include>
+					<include name="addClientContactInDetailsPage"></include>
+					<include name="searchForAnUnlistedClient"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProjectTest">
+				<methods>
+					<include name="addProject"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProductInvoiceTest">
+				<methods>
+					<include name="addInvoice"></include>
+					<include name="addItemToNewInvoice"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProductItemsTest">
+				<methods>
+					<include name="addAnItem"></include>
+					<include name="deleteAnItem"></include>
+				</methods>
+			</class>
+
+		</classes>
+	</test> 
+	
+	<test thread-count="5" name="Test">
+		<parameter name="browser" value="safari"></parameter>
+
+		<classes>
+			<class name="TestScripts.QaLegendUserTest">
+				<methods>
+					<include name="addClient"></include>
+					<include name="editClient"></include>
+					<include name="deleteAClient"></include>
+					<include name="selectClientsToDisplayUsingDropdown"></include>
+					<include name="addClientContactInDetailsPage"></include>
+					<include name="searchForAnUnlistedClient"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProjectTest">
+				<methods>
+					<include name="addProject"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProductInvoiceTest">
+				<methods>
+					<include name="addInvoice"></include>
+					<include name="addItemToNewInvoice"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProductItemsTest">
+				<methods>
+					<include name="addAnItem"></include>
+					<include name="deleteAnItem"></include>
+				</methods>
+			</class>
+
+		</classes>
+	</test> 
+	<test thread-count="5" name="Test">
+		<parameter name="browser" value="firefox"></parameter>
+
+		<classes>
+			<class name="TestScripts.QaLegendUserTest">
+				<methods>
+					<include name="addClient"></include>
+					<include name="editClient"></include>
+					<include name="deleteAClient"></include>
+					<include name="selectClientsToDisplayUsingDropdown"></include>
+					<include name="addClientContactInDetailsPage"></include>
+					<include name="searchForAnUnlistedClient"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProjectTest">
+				<methods>
+					<include name="addProject"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProductInvoiceTest">
+				<methods>
+					<include name="addInvoice"></include>
+					<include name="addItemToNewInvoice"></include>
+				</methods>
+			</class>
+
+			<class name="TestScripts.QaLegendProductItemsTest">
+				<methods>
+					<include name="addAnItem"></include>
+					<include name="deleteAnItem"></include>
+				</methods>
+			</class>
+
+		</classes>
+	</test> 
+	 
+</suite> 
+

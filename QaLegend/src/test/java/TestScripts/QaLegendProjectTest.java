@@ -10,12 +10,13 @@ import AutomationCore.BaseClass;
 import Constants.Constant;
 import Utilities.ExcelUtility;
 import Utilities.FakerUtility;
+import Utilities.RetryAnalyzer;
 
 public class QaLegendProjectTest extends BaseClass{
 	
 	
 	
-@Test	
+@Test	(retryAnalyzer = RetryAnalyzer.class)
 public void addProject() throws IOException {
 		
 	SoftAssert softAssert = new SoftAssert();

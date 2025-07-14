@@ -6,7 +6,7 @@
 
 		</listener>
 	</listeners>
-	<test thread-count="5" name="Test">
+	<test thread-count="3" name="Test" parallel="methods">
 		<parameter name="browser" value="Chrome"></parameter>
 
 		<classes>

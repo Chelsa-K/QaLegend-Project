@@ -9,12 +9,13 @@ import AutomationCore.BaseClass;
 import Constants.Constant;
 import Utilities.ExcelUtility;
 import Utilities.FakerUtility;
+import Utilities.RetryAnalyzer;
 
 public class QaLegendProductItemsTest extends BaseClass {
 	
 	
 	
-	@Test
+	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void addAnItem() {  
 		
 		SoftAssert softAssert = new SoftAssert();
@@ -30,7 +31,7 @@ public class QaLegendProductItemsTest extends BaseClass {
 		
 	}
 	
-@Test	
+@Test	(retryAnalyzer = RetryAnalyzer.class)
 public void deleteAnItem() throws IOException {  
 		
 		SoftAssert softAssert = new SoftAssert();

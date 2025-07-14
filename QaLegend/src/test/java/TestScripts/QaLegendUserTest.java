@@ -10,11 +10,12 @@ import AutomationCore.BaseClass;
 import Constants.Constant;
 import Utilities.ExcelUtility;
 import Utilities.FakerUtility;
+import Utilities.RetryAnalyzer;
 
 public class QaLegendUserTest extends BaseClass{
 	
 	
-	@Test
+	@Test(groups = {"smoke", "regression"}, retryAnalyzer = RetryAnalyzer.class)
 	public void addClient() throws IOException {     //tc01
 		
 		loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password")); //fetching data using property file
@@ -28,7 +29,7 @@ public class QaLegendUserTest extends BaseClass{
 	
 	
 	
-	@Test
+	@Test(groups = {"smoke", "regression"},retryAnalyzer = RetryAnalyzer.class)
 	public void editClient() throws IOException {  
 
 		SoftAssert softAssert = new SoftAssert(); //instantiate softAssert class
@@ -51,7 +52,7 @@ public class QaLegendUserTest extends BaseClass{
 	
 	
 	
-	@Test  
+	@Test (groups = {"regression"},retryAnalyzer = RetryAnalyzer.class)
 	public void deleteAClient() throws IOException, InterruptedException {   //tc03- to delete a client using delete button
 		
 		SoftAssert softAssert = new SoftAssert();
@@ -69,7 +70,7 @@ public class QaLegendUserTest extends BaseClass{
 	
 	
 	
-	@Test
+	@Test(groups = {"smoke", "regression"},retryAnalyzer = RetryAnalyzer.class)
 	public void selectClientsToDisplayUsingDropdown() {
 		SoftAssert softAssert = new SoftAssert();
 		loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
@@ -79,7 +80,7 @@ public class QaLegendUserTest extends BaseClass{
 		softAssert.assertAll();
 	}
 	
-	@Test
+	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void addClientContactInDetailsPage() throws IOException {
 		loginPage.loginToQaLegend(prop.getProperty("username"), prop.getProperty("password"));
 		dashboard.clickOnClientOptionButton();
@@ -92,7 +93,7 @@ public class QaLegendUserTest extends BaseClass{
 		
 	}
 	
-	@Test
+	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void searchForAnUnlistedClient() {
 		
 		SoftAssert softAssert = new SoftAssert();
